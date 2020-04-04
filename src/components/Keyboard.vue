@@ -1,6 +1,14 @@
 <template>
   <div class="layout">
-    <div @mouseup="toggleCaps(button)" @mousedown="toggleCaps(button)" @click.stop="updateScreen(button)" class="key" :class="[button.css ? button.css : keyboard.default.css, button.showUpper ? 'view-upper' : '', button.isPressed ? 'pressed' : '']" v-for="(button, index) in keyboard.keys" v-bind:key="index" :style="{width: (button.width ? button.width : keyboard.default.width)+'px'}"><span v-if="button.showUpper && !keyboard.capsOn">{{ button.upper.key }}</span><span>{{ keyboard.capsOn && button.upper ? button.upper.key : button.lower.key }}</span></div>
+    <div class="key"
+      @mouseup="toggleCaps(button)"
+      @mouseout="toggleCapsOff(button)"
+      @mousedown="toggleCaps(button)"
+      @click.stop="updateScreen(button)"
+      :class="[button.css ? button.css : keyboard.default.css, button.showUpper ? 'view-upper' : '', button.isPressed ? 'pressed' : '']"
+      v-for="(button, index) in keyboard.keys"
+      v-bind:key="index"
+      :style="{width: (button.width ? button.width : keyboard.default.width)+'px'}"><span v-if="button.showUpper && !keyboard.capsOn" :style="{left: (button.nudge) ? button.nudge+'px' : '16px'}">{{ button.upper.key }}</span><span>{{ keyboard.capsOn && button.upper ? button.upper.key : button.lower.key }}</span></div>
   </div>
 </template>
 
@@ -8,6 +16,11 @@
 export default {
   name: 'Keyboard',
   methods: {
+    toggleCapsOff(button) {
+      if (button.lower.key === 'shift') {
+        this.keyboard.capsOn = false
+      }
+    },
     toggleCaps (button) {
       if (button.lower.key === 'shift') {
         this.keyboard.capsOn = !this.keyboard.capsOn
@@ -76,10 +89,12 @@ export default {
 }
 .key.view-upper span {
   position: absolute;
-  top: -3px;
+  top: -9px;
+  left: 17px;
 }
 .key.view-upper span + span {
   top: 6px;
+  left: 16px;
 }
 .key.pressed {
   background-color: #88aa00;

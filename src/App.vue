@@ -64,7 +64,8 @@ export default {
             isPressed: false,
             lower: {key: '2', keyCode: 88},
             upper: {key: '@', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 14
           },
           {
             isPressed: false,
@@ -75,14 +76,15 @@ export default {
           {
             isPressed: false,
             lower: {key: '4', keyCode: 88},
-            upper: {key: '%', keyCode: 88},
+            upper: {key: '$', keyCode: 88},
             showUpper: true
           },
           {
             isPressed: false,
             lower: {key: '5', keyCode: 88},
             upper: {key: '%', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 15
           },
           {
             isPressed: false,
@@ -94,13 +96,15 @@ export default {
             isPressed: false,
             lower: {key: '7', keyCode: 88},
             upper: {key: '&', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 16
           },
           {
             isPressed: false,
             lower: {key: '8', keyCode: 88},
             upper: {key: '*', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 17
           },
           {
             isPressed: false,
@@ -112,13 +116,15 @@ export default {
             isPressed: false,
             lower: {key: '0', keyCode: 88},
             upper: {key: ')', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 17
           },
           {
             isPressed: false,
             lower: {key: '-', keyCode: 88},
             upper: {key: '_', keyCode: 88},
-            showUpper: true
+            showUpper: true,
+            nudge: 15
           },
           {
             isPressed: false,
